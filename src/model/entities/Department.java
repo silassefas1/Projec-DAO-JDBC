@@ -55,7 +55,7 @@ public class Department implements Serializable{
 		return "+----+----------------+\n" +
                 "| Id | DepartmentName |\n" +
                 "+----+----------------+\n" +
-                "| " + String.format("%-2s", id) + " | " + String.format("%-8s", name) +"      |"+
+                "| " + String.format("%-2s", id) + " | " + String.format("%-8s", name) +" | "+
                 "\n+----+----------------+";
 	}
 
