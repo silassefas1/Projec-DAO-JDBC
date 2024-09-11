@@ -1,5 +1,7 @@
 package application;
 
+import java.util.Scanner;
+
 import db.DB;
 import model.dao.DaoFactory;
 import model.dao.DepartmentDao;
@@ -10,6 +12,7 @@ public class Program2 {
 	public static void main(String[] args) {
 		
 		DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
+		Scanner scan = new Scanner(System.in);
 	
 		System.out.println("=== TEST 1: Department Insert ===");
 		Department newDepartment = new Department(null, "Customer Service");
@@ -21,9 +24,20 @@ public class Program2 {
 		departmentDao.update(updateDepartment);
 		System.out.println("Department Updated!");
 		
-
-		DB.closeConnection();
+		System.out.println("=== TEST 3: Department delete ===");
+		System.out.print("Enter id for delete: ");
+		int id = scan.nextInt();
+		departmentDao.deleteById(id);
+		System.out.print("Delete Completed");
 		
+		System.out.println("=== TEST 4: Department Find By Id ===");
+		System.out.print("Enter id for find: ");
+		id = scan.nextInt();
+		Department department = departmentDao.findById(id);
+		System.out.println(department);
+		
+		DB.closeConnection();
+		scan.close();
 	}
 
 }

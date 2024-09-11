@@ -52,7 +52,11 @@ public class Department implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Department [id=" + id + ", name=" + name + "]";
+		return "+----+----------------+\n" +
+                "| Id | DepartmentName |\n" +
+                "+----+----------------+\n" +
+                "| " + String.format("%-2s", id) + " | " + String.format("%-8s", name) +"      |"+
+                "\n+----+----------------+";
 	}
 
 
